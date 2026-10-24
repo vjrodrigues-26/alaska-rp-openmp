@@ -1,0 +1,20 @@
+# Archivos ejecutables y del servidor
+omp-server.exe
+samp-server.exe
+*.exe
+*.dll
+*.so
+
+# Logs y bases de datos locales
+logs/
+*.log
+*.db
+log.txt
+
+# Archivos compilados de Pawn (el servidor usará los .amx, pero en GitHub solo subes los .pwn)
+# Nota: Si prefieres subir los .amx, quita la siguiente línea:
+*.amx
+
+# Cache y temporales de editores
+.vscode/
+.idea/
