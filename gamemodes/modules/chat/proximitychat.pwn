@@ -2,7 +2,8 @@ hook OnPlayerText(playerid, text[]) {
     new Float:pos_x, Float:pos_y, Float:pos_z;
     GetPlayerPos(playerid, pos_x, pos_y, pos_z);
 
-    ProximityDetector(playerid, pos_x, pos_y, pos_z, text);
+    //ProximityDetector(playerid, pos_x, pos_y, pos_z, text);
+    //SendClientMessageEx(playerid, text);
     return 0;
 }
 
