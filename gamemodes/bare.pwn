@@ -17,6 +17,7 @@
 #include "modules/player/accounts.pwn"
 #include "modules/player/commands.pwn"
 #include "modules/chat/proximitychat.pwn"
+#include "modules/chat/messagemanager.pwn"
 // FIN MODULES //
 
 main()
