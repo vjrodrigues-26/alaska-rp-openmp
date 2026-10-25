@@ -4,7 +4,9 @@ enum E_PLAYER_DATA {
     Float:p_posx,
     Float:p_posy,
     Float:p_posz,
-    Float:p_hp
+    Float:p_hp,
+    p_AdminPerm, //Flags
+    p_AdminDuty
 }
 new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
 
@@ -85,6 +87,7 @@ stock CheckUserAccountDB(playerid) {
 hook OnPlayerConnect(playerid) {
     PlayerData[playerid][p_isLogged] = false;
     PlayerData[playerid][p_sqlid] = 0;
+    PlayerData[playerid][p_AdminPerm] = 0;
     SetPlayerColor(playerid, 0xffffff);
     TogglePlayerSpectating(playerid, true);
 
