@@ -1,3 +1,13 @@
+public OnPlayerCommandPerformed(playerid, cmd[], params[], result, flags) {
+    if (result == -1) {
+        new string[128];
+        format(string, sizeof(string), "[ERROR]: El comando '%s' no existe. Usa /ayuda para ver los disponibles.", cmd);
+        SendClientMessage(playerid, COLOR_CMD, string);
+        return 0;
+    }
+    return 1;
+}
+
 stock SendClientMessageLong(playerid, const text[], color) {
     new text1[128], text2[144];
 
