@@ -6,7 +6,7 @@ CMD:me(playerid, params[]) {
     GetPlayerRPName(playerid, name, sizeof(name));
     format(string, sizeof(string), "* %s %s", name, params);
 
-    ProximityDetector(playerid, posx, posy, posz, string, COLOR_ME, 15, false);
+    ProximityDetector(posx, posy, posz, string, COLOR_ME, 20, false);
     return 1;
 }
 
@@ -18,7 +18,7 @@ CMD:dos(playerid, params[]) {
     GetPlayerRPName(playerid, name, sizeof(name));
     format(string, sizeof(string), "%s (( %s ))", params, name);
 
-    ProximityDetector(playerid, posx, posy, posz, string, COLOR_ME, 15, false);
+    ProximityDetector(posx, posy, posz, string, COLOR_ME, 20, false);
 
     return 1; 
 }
