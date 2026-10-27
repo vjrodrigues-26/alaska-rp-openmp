@@ -88,7 +88,7 @@ hook OnPlayerConnect(playerid) {
     PlayerData[playerid][p_isLogged] = false;
     PlayerData[playerid][p_sqlid] = 0;
     PlayerData[playerid][p_AdminPerm] = 0;
-    SetPlayerColor(playerid, 0xffffff);
+    SetPlayerColor(playerid, -1);
     TogglePlayerSpectating(playerid, true);
 
     if (!IsValidRpName(playerid)) return SendClientMessage(playerid, COLOR_ERROR, "[ERROR]: El nombre no cumple con el estándar Nombre_Apellido."), Kick(playerid);
@@ -212,4 +212,8 @@ stock GetPlayerRPName(playerid, name[], len = MAX_PLAYER_NAME) {
         }
     }
     return 1; //TEST
+}
+
+hook OnPlayerSpawn(playerid) {
+    SetPlayerColor(playerid, -1);
 }
