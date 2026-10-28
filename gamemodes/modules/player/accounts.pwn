@@ -6,7 +6,8 @@ enum E_PLAYER_DATA {
     Float:p_posz,
     Float:p_hp,
     p_AdminPerm, //Flags
-    p_AdminDuty
+    p_AdminDuty,
+    p_HasDuda
 }
 new PlayerData[MAX_PLAYERS][E_PLAYER_DATA];
 
