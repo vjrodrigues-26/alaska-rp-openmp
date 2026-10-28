@@ -24,6 +24,23 @@ CMD:dos(playerid, params[]) {
 }
 alias:dos("do")
 
+CMD:duda(playerid, params[]) {
+    new usermessage[144], string[144], name[MAX_PLAYER_NAME];
+    
+    if (sscanf(params, "s[144]", usermessage)) return SendClientMessage(playerid, COLOR_CMD, "/duda texto");
+    SendClientMessage(playerid, -1, usermessage);
+
+    GetPlayerRPName(playerid, name, sizeof(name));
+    format(string, sizeof(string), "[DUDA] %s (%d): %s", name, playerid, usermessage);
+
+    foreach(new i: Player) {
+        if (PlayerData[i][p_AdminPerm] > 0) {
+            SendClientMessageLong(i, string, COLOR_AMBARYELLOW);
+        }
+    } 
+    return 1;
+}
+
 //Testing commands
 CMD:ls(playerid, params[]) {
     SetPlayerPos(playerid, 2494.0, -1683.0, 14.0);
