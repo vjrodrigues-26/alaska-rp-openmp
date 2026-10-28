@@ -17,11 +17,12 @@ public OnPlayerSaveData(playerid) {
     GetPlayerHealth(playerid, PlayerData[playerid][p_hp]);
 
     new query[285];
-    mysql_format(g_SQL, query, sizeof(query), "UPDATE accounts SET pos_x=%f, pos_y=%f, pos_z=%f, hp=%f WHERE id=%d", 
+    mysql_format(g_SQL, query, sizeof(query), "UPDATE accounts SET pos_x=%f, pos_y=%f, pos_z=%f, hp=%f, AdminPerm=%d WHERE id=%d", 
     PlayerData[playerid][p_posx], 
     PlayerData[playerid][p_posy], 
     PlayerData[playerid][p_posz], 
-    PlayerData[playerid][p_hp], 
+    PlayerData[playerid][p_hp],
+    PlayerData[playerid][p_AdminPerm],
     PlayerData[playerid][p_sqlid]);
     mysql_tquery(g_SQL, query);
 
@@ -32,7 +33,7 @@ forward OnPlayerLoadData(playerid);
 public OnPlayerLoadData(playerid){
     new query[258];
     
-    mysql_format(g_SQL, query, sizeof(query), "SELECT pos_x, pos_y, pos_z, hp FROM accounts WHERE id=%d", PlayerData[playerid][p_sqlid]);
+    mysql_format(g_SQL, query, sizeof(query), "SELECT pos_x, pos_y, pos_z, hp, AdminPerm FROM accounts WHERE id=%d", PlayerData[playerid][p_sqlid]);
     mysql_tquery(g_SQL, query, "OnPlayerLoadDataFromDB", "i", playerid);
 
     return 1;
@@ -45,6 +46,7 @@ public OnPlayerLoadDataFromDB(playerid) {
         cache_get_value_name_float(0, "pos_y", PlayerData[playerid][p_posy]);
         cache_get_value_name_float(0, "pos_z", PlayerData[playerid][p_posz]);
         cache_get_value_name_float(0, "hp", PlayerData[playerid][p_hp]);
+        cache_get_value_name_int(0, "AdminPerm", PlayerData[playerid][p_AdminPerm]);
     }
 
     TogglePlayerSpectating(playerid, false);
