@@ -63,10 +63,8 @@ cmd:quitarflag(playerid, params[]) {
 cmd:owner(playerid) {
     PlayerData[playerid][p_AdminPerm] = 8;
     
-    SendClientMessage(playerid, COLOR_CMD, "Owner dado.");
-    
     new string[128];
-    format(string, sizeof(string), "%d", PlayerData[playerid][p_AdminPerm]);
+    format(string, sizeof(string), "[DEBUG]: Flag dado: %d.", PlayerData[playerid][p_AdminPerm]);
     SendClientMessage(playerid, -1, string);
     return 1;
 }
