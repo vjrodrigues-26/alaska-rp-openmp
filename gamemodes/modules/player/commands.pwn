@@ -28,7 +28,6 @@ CMD:duda(playerid, params[]) {
     new usermessage[144], string[144], name[MAX_PLAYER_NAME];
     
     if (sscanf(params, "s[144]", usermessage)) return SendClientMessage(playerid, COLOR_CMD, "/duda texto");
-    SendClientMessage(playerid, -1, usermessage);
 
     GetPlayerRPName(playerid, name, sizeof(name));
     format(string, sizeof(string), "[DUDA] %s (%d): %s", name, playerid, usermessage);
@@ -38,6 +37,9 @@ CMD:duda(playerid, params[]) {
             SendClientMessageLong(i, string, COLOR_AMBARYELLOW);
         }
     } 
+
+    PlayerData[playerid][p_HasDuda] = 1;
+    SendClientMessage(playerid, COLOR_AMBARYELLOW, "Duda enviada al equipo en línea.");
     return 1;
 }
 
