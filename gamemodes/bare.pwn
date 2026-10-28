@@ -11,6 +11,12 @@
 #include <foreach>
 // FIN INCLUDES //
 
+//DEFINES FLAGS //
+#define FLAG_NONE   0
+#define FLAG_OWNER  (1 << 3)
+#define FLAG_HELPER (1 << 0)
+// FIN DEFINES FLAGS //
+
 // MODULES //
 #include "modules/core/database.pwn"
 #include "modules/core/colors.inc"
@@ -21,12 +27,6 @@
 #include "modules/player/staff/owner_commands.pwn"
 #include "modules/player/staff/helper_commands.pwn"
 // FIN MODULES //
-
-//DEFINES FLAGS //
-#define FLAG_NONE   0
-#define FLAG_OWNER  (1 << 3)
-#define FLAG_HELPER (1 << 0)
-// FIN DEFINES FLAGS //
 
 main()
 {
